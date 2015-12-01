@@ -1,0 +1,55 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("离散"
+ (filename . "e:/Documents/离散数学/")
+ (front-context-string . "2015 - Error Cor")
+ (rear-context-string . "166 11-09 00:28 ")
+ (position . 228))
+("数据结构"
+ (filename . "e:/Documents/数据结构/")
+ (front-context-string . "ds09-v2014.ppt\n ")
+ (rear-context-string . "952 2014-12-24  ")
+ (position . 246))
+("数字逻辑"
+ (filename . "e:/Documents/数字逻辑/")
+ (front-context-string . "7.2 001.jpg\n  -r")
+ (rear-context-string . "820 10-22 17:54 ")
+ (position . 249))
+("Doc"
+ (filename . "e:/Documents/")
+ (front-context-string . "360js Files\n  -r")
+ (rear-context-string . "  0 11-10 22:23 ")
+ (position . 250))
+("e:"
+ (filename . "e:/")
+ (front-context-string . "$RECYCLE.BIN\n  d")
+ (rear-context-string . "096 11-10 16:43 ")
+ (position . 113))
+("test.cpp"
+ (filename . "e:/C&CPP/test.cpp")
+ (front-context-string . "#include<cstdio>")
+ (rear-context-string)
+ (position . 1))
+("test.c"
+ (filename . "e:/C&CPP/test.c")
+ (front-context-string . "#include<stdio.h")
+ (rear-context-string)
+ (position . 1))
+("Desktop"
+ (filename . "c:/Users/Traeyee/Desktop/")
+ (front-context-string . "360Safe.lnk\n  dr")
+ (rear-context-string . "949 11-16 15:44 ")
+ (position . 255))
+("init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; This file is ")
+ (rear-context-string)
+ (position . 1))
+("C&CPP"
+ (filename . "e:/C&CPP/")
+ (front-context-string . "5.9热身赛\n  -rw-rw-")
+ (rear-context-string . "  0 2015-05-10  ")
+ (position . 242))
+)
