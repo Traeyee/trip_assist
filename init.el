@@ -4,7 +4,8 @@
 ;; accomplish the true initialization
 ;; You should put this file in the **default** HOME directory right after
 ;; emacs is installed
-(setenv "HOME" "E:/home/") ;; you can change this dir to the place you like
+(setenv "HOME" "c:/eHome") ;; you can change this dir to the place you like
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -26,7 +27,8 @@
  '(ido-everywhere t)
  '(ido-ubiquitous-mode t)
  '(inhibit-startup-screen t)
- '(recentf-mode nil)
+ '(make-backup-files nil)
+ '(recentf-mode t)
  '(show-paren-mode t)
  '(show-paren-style (quote mixed)))
 (custom-set-faces
@@ -77,6 +79,7 @@ Version 2015-01-26"
   (package-initialize))
 
  ;; Managing plug-ins .
+(require 'unicad)
 (require 'smex) ; Not needed if you use package.el
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
 					; when Smex is auto-initialized on its first run.
