@@ -23,7 +23,7 @@
      (awk-mode . "awk")
      (other . "gnu"))))
  '(current-language-environment "Chinese-GBK")
- '(custom-enabled-themes (quote (tsdh-dark)))
+ '(custom-enabled-themes (quote (misterioso)))
  '(global-linum-mode t)
  '(ido-everywhere t)
  '(ido-ubiquitous-mode t)
