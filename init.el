@@ -22,7 +22,7 @@
      (java-mode . "java")
      (awk-mode . "awk")
      (other . "gnu"))))
- '(current-language-environment "Chinese-GBK")
+ '(current-language-environment "UTF-8")
  '(custom-enabled-themes (quote (misterioso)))
  '(global-linum-mode t)
  '(ido-everywhere t)
