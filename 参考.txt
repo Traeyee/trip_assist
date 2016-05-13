@@ -1,0 +1,6 @@
+QTimer
+QLabel
+QGridLayout
+QMousePressEvent
+QPushButton
+QWidget
