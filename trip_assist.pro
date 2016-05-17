@@ -22,4 +22,6 @@ HEADERS  += mainwindow.h \
     newtrip.h
 
 FORMS    += mainwindow.ui \
-    newtrip.ui
+    newtrip.ui \
+    ui/mainwindow.ui \
+    ui/newtrip.ui
