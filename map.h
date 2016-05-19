@@ -3,7 +3,7 @@
 
 #include <QLabel>
 
-class blocks : public QLabel
+class Block : public QLabel
 {
     Q_OBJECT
     
@@ -11,7 +11,9 @@ class blocks : public QLabel
   signals:
   protected:
   private:
+    int No;
     bool isCity;
+    int x, y;
     
 };
 

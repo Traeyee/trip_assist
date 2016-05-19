@@ -2,12 +2,19 @@
 #include "ui_mainwindow.h"
 #include "newtrip.h"
 #include <QtCore>
+#include "system.h"
+#include "map.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //Initialization
+    Block blocks[ROW][COLUMN];
+    init(blocks);
+
+    
     QTimer *theTimer = new QTimer(this);
     connect(theTimer, SIGNAL(timeout()), this, SLOT(timerUpdate()));
     theTimer->start(3000);
