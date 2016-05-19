@@ -19,9 +19,8 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     system.h \
-    newtrip.h
+    newtrip.h \
+    map.h
 
 FORMS    += mainwindow.ui \
     newtrip.ui \
-    ui/mainwindow.ui \
-    ui/newtrip.ui
