@@ -13,14 +13,20 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     system.cpp \
-    newtrip.cpp
+    newtrip.cpp \
+    map.cpp \
+    start.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     system.h \
     newtrip.h \
-    map.h
+    map.h \
+    start.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     newtrip.ui \
+    start.ui
+
+RESOURCES += \
+    pic.qrc

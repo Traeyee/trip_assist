@@ -2,12 +2,12 @@
 #define SYSTEM_H
 
 #include <QTime>
-
-QTime sysTime;
-
+#include "map.h"
 
 
 
-void init();
+
+
+//void init(Block* blocks, int r, int c, QWidget *parent = 0);
 
 #endif

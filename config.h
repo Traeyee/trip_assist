@@ -3,8 +3,8 @@
 
 
 
-#define ROW 100
-#define COLUMN 100
+#define ROW 10
+#define COLUMN 10
 
 
 
