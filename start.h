@@ -2,6 +2,7 @@
 #define START_H
 
 #include <QWidget>
+#include <QTime>
 #include "map.h"
 
 namespace Ui {
@@ -15,11 +16,16 @@ class start : public QWidget
 public:
     explicit start(Block* blocks, int r, int c, QWidget *parent = 0);
     ~start();
+    QTime sysTime;
+
+    public slots:
+	void timeUpdate();
 
 private slots:
-    void on_pushButton_clicked();
 //    void slotSafe();
 //    void slotExplode();
+    void on_startTrip_clicked();
+
 private:
     QGridLayout* mainLayout;
     int row;

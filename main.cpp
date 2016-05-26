@@ -10,10 +10,6 @@ int main(int argc, char *argv[])
     //Initializaion
     int i;
     Block blocks[ROW * COLUMN];
-    /*
-    for(i = 0; i < ROW * COLUMN; i ++)
-	blocks[i].initial();
-    */
     start w(blocks, ROW, COLUMN);
     loadMap(blocks, ROW, COLUMN);
     w.show();
