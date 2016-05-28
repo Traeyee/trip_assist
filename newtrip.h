@@ -2,6 +2,7 @@
 #define NEWTRIP_H
 
 #include <QDialog>
+#include <QComboBox>
 
 namespace Ui {
 class NewTrip;
@@ -16,6 +17,7 @@ public:
     ~NewTrip();
 
 private:
+    QComboBox midP[9];
     Ui::NewTrip *ui;
 };
 

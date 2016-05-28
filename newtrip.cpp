@@ -12,7 +12,7 @@ NewTrip::NewTrip(int n, QWidget *parent) :
     int i, j;
     for(i = 0; i < 9; i ++)
     {
-	QComboBox* midP = new QComboBox[9];
+//	QComboBox* midP = new QComboBox[9];
 	for(j = 0; j < n; j ++)
 	    midP[i].addItem(QString("%1").arg(j, 2, 10, QLatin1Char('0')));
 	ui->cityLayout->addWidget(midP + i);

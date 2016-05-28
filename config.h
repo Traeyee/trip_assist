@@ -3,8 +3,8 @@
 
 
 
-#define ROW 10
-#define COLUMN 10
+#define ROW 30
+#define COLUMN 30
 #define TIMEUNIT 300//现实1秒相当于游戏TIMEUNIT秒
 
 
