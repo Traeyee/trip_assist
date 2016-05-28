@@ -12,7 +12,7 @@ class NewTrip : public QDialog
     Q_OBJECT
 
 public:
-    explicit NewTrip(QWidget *parent = 0);
+    explicit NewTrip(int n, QWidget *parent = 0);
     ~NewTrip();
 
 private:

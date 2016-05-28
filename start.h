@@ -14,10 +14,9 @@ class start : public QWidget
     Q_OBJECT
 
 public:
-    explicit start(Block* blocks, int r, int c, QWidget *parent = 0);
+    explicit start(Block* blocks, int r, int c, int n, QWidget *parent = 0);
     ~start();
     QTime sysTime;
-
     public slots:
 	void timeUpdate();
 
@@ -26,10 +25,10 @@ private slots:
 //    void slotExplode();
     void on_startTrip_clicked();
 
-private:
-    QGridLayout* mainLayout;
+  private:
     int row;
     int column;
+    int cityNum;
     Ui::start *ui;
 };
 

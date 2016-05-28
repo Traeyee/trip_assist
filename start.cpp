@@ -3,27 +3,26 @@
 #include <QtCore>
 #include <QWidget>
 #include "newtrip.h"
-#include "system.h"
 #include "map.h"
 #include "config.h"
 #include <cstdio>
 
-start::start(Block* blocks, int r, int c, QWidget *parent) :
+start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::start)
 {
     ui->setupUi(this);
     row = r;
     column = c;
-    int i, j;    
-    mainLayout = new QGridLayout(this);
-    mainLayout->setSpacing(1);
+    cityNum = n;
+    int i, j;
+    ui->gridLayout->setSpacing(30);
     for(i = 0; i < row; i ++)
 	for(j = 0; j < column; j ++)
-	    mainLayout->addWidget(blocks + i * row + j, i, j);
+	    ui->gridLayout->addWidget(blocks + i * row + j, i, j);
 //强制设置窗体大小
-    setLayout(mainLayout);
-//    setFixedSize(sizeHint());
+//    setLayout(mainLayout);
+    //  setFixedSize(850,700);
 
     //建立时间
     sysTime.setHMS(6, 0, 0);
@@ -39,8 +38,8 @@ start::~start()
 
 void start::on_startTrip_clicked()
 {
-    NewTrip n;
-    n.exec();
+    NewTrip newTrip(cityNum);
+    newTrip.exec();
 }
 
 void start::timeUpdate()

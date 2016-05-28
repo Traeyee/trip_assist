@@ -4,12 +4,12 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QWidget>
-
-class Block:public QLabel
+#include <QtCore>
+class Block : public QLabel
 {
     Q_OBJECT
   public:
-    explicit Block();
+    explicit Block(QWidget *parent = 0);
 //    void initial();
     void setting(int No, int isCity);
 //    explicit Block(bool mine_flag,QWidget* parent=0);
@@ -24,7 +24,14 @@ class Block:public QLabel
     int No;
     bool isCity;
 };
+class Route
+{
 
-void loadMap(Block* blocks, int row, int column);
+  private:
+    unsigned char kind;
+    int dist;
+    QTime begin, end;
+};
+int loadMap(Block* blocks, int row, int column);
 
 #endif

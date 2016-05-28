@@ -5,7 +5,8 @@
 #include <iostream>
 using namespace std;
 
-Block::Block()
+Block::Block(QWidget *parent) :
+    QLabel(parent)
 {
     No = -1;
     isCity = false;    
@@ -20,7 +21,7 @@ void Block::setting(int N, int isCit)
     setPixmap(QPixmap(":/images/" +QString("%1").arg(No, 2, 10, QLatin1Char('0'))));
 }
 
-void loadMap(Block* blocks, int row, int column)
+int loadMap(Block* blocks, int row, int column)
 {
     char temp[40];
     int i, j, k, l, m, n, s;
@@ -52,4 +53,5 @@ void loadMap(Block* blocks, int row, int column)
     }
     
     input.close();
+    return n;
 }

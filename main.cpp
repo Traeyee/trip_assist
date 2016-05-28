@@ -8,10 +8,10 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Initializaion
-    int i;
+    int n;
     Block blocks[ROW * COLUMN];
-    start w(blocks, ROW, COLUMN);
-    loadMap(blocks, ROW, COLUMN);
+    n = loadMap(blocks, ROW, COLUMN);
+    start w(blocks, ROW, COLUMN, n);
     w.show();
     
     return a.exec();
