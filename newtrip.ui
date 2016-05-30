@@ -188,11 +188,17 @@
    <property name="title">
     <string>策略选择</string>
    </property>
-   <widget class="QRadioButton" name="radioButton">
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <widget class="QRadioButton" name="timeBtn">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>30</y>
+      <y>70</y>
       <width>155</width>
       <height>25</height>
      </rect>
@@ -201,11 +207,11 @@
      <string>时间优先</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="priceBtn">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>70</y>
+      <y>30</y>
       <width>155</width>
       <height>21</height>
      </rect>
@@ -213,8 +219,11 @@
     <property name="text">
      <string>价格优先</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_3">
+   <widget class="QRadioButton" name="mixBtn">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -225,6 +234,12 @@
     </property>
     <property name="text">
      <string>限时价格优先</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>

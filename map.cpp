@@ -24,34 +24,38 @@ void Block::setting(int N, int isCit)
 int loadMap(Block* blocks, int row, int column)
 {
     char temp[40];
-    int i, j, k, l, m, n, s;
+    int i, j, k, l, m, s;
+    int n = 0;
     ifstream input ("map.dat");
-    input >> temp;
-    input >> n;
-    for(k = 0; k < n; k ++)
+    if(input.is_open())
     {
 	input >> temp;
-	input >> m;
-	input >> temp;
-	input >> s;
-	input >> temp;
-	input >> i;
-	input.ignore();
-	input >> j;
-	//处理block的i和j问题
-	blocks[i * row + j].setting(m, 1);
-
-	input >> temp;
-	for(l = 1; l < s; l ++)
+	input >> n;
+	for(k = 0; k < n; k ++)
 	{
+	    input >> temp;
+	    input >> m;
+	    input >> temp;
+	    input >> s;
+	    input >> temp;
 	    input >> i;
 	    input.ignore();
 	    input >> j;
-	    //处理block
-	    blocks[i * row + j].setting(m, 0);
+	    //处理block的i和j问题
+	    blocks[i * row + j].setting(m, 1);
+
+	    input >> temp;
+	    for(l = 1; l < s; l ++)
+	    {
+		input >> i;
+		input.ignore();
+		input >> j;
+		//处理block
+		blocks[i * row + j].setting(m, 0);
+	    }
 	}
-    }
     
-    input.close();
+	input.close();
+    }
     return n;
 }

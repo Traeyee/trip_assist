@@ -16,6 +16,9 @@ public:
     explicit NewTrip(int n, QWidget *parent = 0);
     ~NewTrip();
 
+private slots:
+    void on_NewTrip_accepted();
+
 private:
     QComboBox midP[9];
     Ui::NewTrip *ui;

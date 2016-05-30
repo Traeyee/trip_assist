@@ -28,3 +28,16 @@ NewTrip::~NewTrip()
 {
     delete ui;
 }
+
+void NewTrip::on_NewTrip_accepted()
+{
+    if(ui->timeBtn->isChecked())
+    {
+	NewTrip n1(1);
+	n1.exec();
+    }
+    else if(ui->priceBtn->isChecked())
+	return ;
+    else if(ui->mixBtn->isChecked())
+	return;
+}
