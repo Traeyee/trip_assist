@@ -5,33 +5,33 @@
 #include <QGridLayout>
 #include <QWidget>
 #include <QtCore>
+#include "config.h"
+
+
+extern int seq;
+extern int customer[15][50];
+
+
 class Block : public QLabel
 {
     Q_OBJECT
   public:
     explicit Block(QWidget *parent = 0);
-//    void initial();
     void setting(int No, int isCity);
-//    explicit Block(bool mine_flag,QWidget* parent=0);
-//    void setNumber(int number);
-//    bool isMine()const;
-  signals:
-//    void explode();
-//    void safe();
-  protected:
-//    void mousePressEvent(QMouseEvent* event);
   private:
     int No;
     bool isCity;
 };
 class Route
 {
-
-  private:
+  public:
+    int startCity, endCity;
     unsigned char kind;
+    int price;
     int dist;
     QTime begin, end;
+    int step[ROW + COLUMN];
 };
-int loadMap(Block* blocks, int row, int column);
+int loadMap(Block* blocks, Route* route, int row, int column);
 
 #endif

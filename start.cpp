@@ -8,6 +8,8 @@
 #include <cstdio>
 #include <QPainter>
 
+
+
 start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::start)

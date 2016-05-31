@@ -20,7 +20,7 @@ private slots:
     void on_NewTrip_accepted();
 
 private:
-    QComboBox midP[9];
+    QComboBox midP[11];
     Ui::NewTrip *ui;
 };
 
