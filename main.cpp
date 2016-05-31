@@ -7,14 +7,14 @@
 
 extern int seq;
 extern int customer[15][50];
-
+extern QDateTime dateTime;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Initializaion
-    seq = 8;
-
+    seq = 0;
+    dateTime = QDateTime::currentDateTime();
     
     int n;
     Block blocks[ROW * COLUMN];
@@ -25,3 +25,4 @@ int main(int argc, char *argv[])
     
     return a.exec();
 }
+

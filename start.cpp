@@ -8,7 +8,7 @@
 #include <cstdio>
 #include <QPainter>
 
-
+extern QDateTime dateTime;
 
 start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
     QWidget(parent),
@@ -29,6 +29,7 @@ start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
 
     //建立时间
     sysTime.setHMS(6, 0, 0);
+    dateTime.setTime(sysTime);
     QTimer* timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(timeUpdate()));
     timer->start(1000);
@@ -49,7 +50,8 @@ void start::on_startTrip_clicked()
 void start::timeUpdate()
 {
     sysTime = sysTime.addSecs(TIMEUNIT);
-    ui->sysTimeUi->setText(sysTime.toString("HH:mm"));
+    dateTime = dateTime.addSecs(TIMEUNIT);
+    ui->sysTimeUi->setText(dateTime.toString("yyyy/MM/dd HH:mm"));
 }
 
 void start::paintEvent(QPaintEvent *)

@@ -7,6 +7,7 @@ using namespace std;
 
 int seq;
 int customer[15][50];
+QDateTime dateTime;
 
 Block::Block(QWidget *parent) :
     QLabel(parent)

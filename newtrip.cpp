@@ -18,7 +18,10 @@ NewTrip::NewTrip(int n, QWidget *parent) :
     {
 //	QComboBox* midP = new QComboBox[9];
 	for(j = 0; j < n; j ++)
+	{
 	    midP[i].addItem(QString("%1").arg(j, 2, 10, QLatin1Char('0')));
+	    midP[i].setCurrentIndex(-1);
+	}
 	ui->cityLayout->addWidget(midP + i);
     }
 }
@@ -87,8 +90,20 @@ void NewTrip::on_NewTrip_accepted()
 	return ;
     else if(ui->priceBtn->isChecked())
     {
-	seq ++;
-	qDebug() << seq << endl;
+	int i, j;
+	for(i = 0; i < 11; i = j)
+	{
+	    j = i + 1;
+	    if(midP[i].currentIndex == -1)
+		continue;
+	    else
+	    {		
+		while(midP[j].currentIndex == -1 && j < 11)
+		    j ++;
+		if(j < 11)
+		    priceDijstra(i, j);		
+	    }
+	}
     }
     else if(ui->mixBtn->isChecked())
 	return;

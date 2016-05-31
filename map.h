@@ -10,7 +10,7 @@
 
 extern int seq;
 extern int customer[15][50];
-
+extern QDateTime dateTime;
 
 class Block : public QLabel
 {
