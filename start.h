@@ -27,7 +27,9 @@ private slots:
 //    void slotExplode();
     void on_startTrip_clicked();
 
-  private:
+    void on_inquiry_clicked();
+
+private:
     int row;
     int column;
     int cityNum;

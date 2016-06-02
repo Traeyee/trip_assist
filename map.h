@@ -5,6 +5,7 @@
 #include <QGridLayout>
 #include <QWidget>
 #include <QtCore>
+#include <QThread>
 #include "config.h"
 
 
@@ -28,6 +29,21 @@ class Route
     QTime begin, end;
     int step[ROW + COLUMN];
 };
+
+class OneTrip : public QThread
+{
+    Q_OBJECT
+  public:
+    OneTrip(int seqq);
+    protected:
+    void run();
+    public slots:
+	void routeUpdate();
+  private:
+    int number;
+    int routeSeq;
+};
+
 int loadMap(Block* blocks1, Route* route1, int row, int column);
 int test(Block* blocks1, Route* route1, int row, int column);
 

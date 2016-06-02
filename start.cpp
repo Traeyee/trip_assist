@@ -106,3 +106,9 @@ void start::paintEvent(QPaintEvent *)
     painter.drawText(410,80,"开启新的旅程吧！");
 }
 */
+
+void start::on_inquiry_clicked()
+{
+    Inquiry i;
+    i.exec();
+}

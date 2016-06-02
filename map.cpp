@@ -29,6 +29,37 @@ void Block::setting(int N, int isCit)
     setPixmap(QPixmap(":/images/" +QString("%1").arg(No, 2, 10, QLatin1Char('0'))));
 }
 
+OneTrip::OneTrip(int seqq)
+{
+    number = seqq;
+    routeSeq = 0;
+}
+void OneTrip::run()
+{
+    /*
+    QTimer* timer = new QTimer;
+    connect(timer, SIGNAL(timeout()), this, SLOT(routeUpdate()));
+    */
+    for(;customer[number][routeSeq] != -1; routeSeq ++)
+    {
+	switch(route[customer[number][routeSeq]].kind)
+	{
+	case AIR:
+	    sleep(100);
+	    break;
+	case RAIL:
+	    sleep(200);
+	    break;
+	case ROAD:
+	    sleep(300);
+	    break;
+	}
+    }
+//    delete timer;
+}
+void routeUpdate()
+{
+    
 int loadMap(Block* blocks, Route* route, int row, int column)
 {
     char temp[40];
