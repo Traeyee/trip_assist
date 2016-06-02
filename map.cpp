@@ -33,6 +33,7 @@ OneTrip::OneTrip(int seqq)
 {
     number = seqq;
     routeSeq = 0;
+    position = -1;
 }
 void OneTrip::run()
 {
@@ -40,25 +41,38 @@ void OneTrip::run()
     QTimer* timer = new QTimer;
     connect(timer, SIGNAL(timeout()), this, SLOT(routeUpdate()));
     */
+    int i;
     for(;customer[number][routeSeq] != -1; routeSeq ++)
     {
 	switch(route[customer[number][routeSeq]].kind)
 	{
 	case AIR:
-	    sleep(100);
+	    for(i = 0; i < route[customer[number][routeSeq]].dist; i ++)
+	    {
+		position = route[customer[number][routeSeq]].step[i];
+		sleep(100);
+	    }
 	    break;
 	case RAIL:
-	    sleep(200);
+	    for(i = 0; i < route[customer[number][routeSeq]].dist; i ++)
+	    {
+		position = route[customer[number][routeSeq]].step[i];
+		sleep(200);
+	    }
 	    break;
 	case ROAD:
-	    sleep(300);
+	    for(i = 0; i < route[customer[number][routeSeq]].dist; i ++)
+	    {
+		position = route[customer[number][routeSeq]].step[i];
+		sleep(300);
+	    }
 	    break;
 	}
     }
 //    delete timer;
+    
 }
-void routeUpdate()
-{
+
     
 int loadMap(Block* blocks, Route* route, int row, int column)
 {

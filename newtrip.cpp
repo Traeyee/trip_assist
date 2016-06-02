@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include "map.h"
+#include "inquiry.h"
 
 extern int cityCount;
 extern int routeCount;
@@ -124,6 +125,8 @@ void NewTrip::on_NewTrip_accepted()
 	    }
 	}
 	customer[seq][k] = -1;
+	OneTrip o1(seq);
+	o1.start();
     }
     else if(ui->mixBtn->isChecked())
     {}

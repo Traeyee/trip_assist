@@ -5,6 +5,7 @@
 #include "newtrip.h"
 #include "map.h"
 #include "config.h"
+#include "inquiry.h"
 #include <cstdio>
 #include <QPainter>
 #include <QLabel>

@@ -38,10 +38,10 @@ class OneTrip : public QThread
     protected:
     void run();
     public slots:
-	void routeUpdate();
   private:
     int number;
     int routeSeq;
+    int position;
 };
 
 int loadMap(Block* blocks1, Route* route1, int row, int column);
