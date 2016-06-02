@@ -6,20 +6,25 @@
 #include "start.h"
 
 extern int seq;
-extern int customer[15][50];
+extern int customer[15][MAXN];
 extern QDateTime dateTime;
+extern Route route[50];
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Initializaion
+    Block blocks[ROW * COLUMN];
     seq = 0;
+    int i, j;
+    for(i = 0; i < 15; i ++)
+	for(j = 0; j < 50; j ++)
+	    customer[i][j] = -1;
     dateTime = QDateTime::currentDateTime();
     
     int n;
-    Block blocks[ROW * COLUMN];
-    Route route[50];
     n = loadMap(blocks, route, ROW, COLUMN);
+//    n = test(blocks, route, ROW, COLUMN);
     start w(blocks, ROW, COLUMN, n);
     w.show();
     

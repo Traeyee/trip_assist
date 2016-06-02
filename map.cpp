@@ -5,9 +5,13 @@
 #include <iostream>
 using namespace std;
 
+
+int cityCount;
+int routeCount;
 int seq;
-int customer[15][50];
+int customer[15][MAXN];
 QDateTime dateTime;
+Route route[50];
 
 Block::Block(QWidget *parent) :
     QLabel(parent)
@@ -35,6 +39,7 @@ int loadMap(Block* blocks, Route* route, int row, int column)
     {
 	input >> temp;
 	input >> n;
+	cityCount = n;
 	for(k = 0; k < n; k ++)
 	{
 	    input >> temp;
@@ -62,6 +67,7 @@ int loadMap(Block* blocks, Route* route, int row, int column)
 
 	input >> temp;
 	input >> m;
+	routeCount = m;
 	for(k = 0; k < m; k ++)
 	{
 	    input >> temp;
@@ -93,10 +99,36 @@ int loadMap(Block* blocks, Route* route, int row, int column)
 		input >> i;
 		input.ignore();
 		input >> j;
-		route[k].step[0] = i * ROW + COLUMN;
+		route[k].step[s] = i * ROW + COLUMN;
 	    }
 	}	
 	input.close();
     }
+    return n;
+}
+
+int test(Block* blocks, Route* route, int row, int column)
+{
+    //未完，用于测试
+    int i, j, k, n, m;
+    n = 2;
+    cityCount = n;
+    blocks[0].setting(0, 1);
+    blocks[1].setting(0, 0);
+    blocks[1 * column + 0].setting(1, 0);
+    blocks[1 * column + 1].setting(1, 1);
+
+    m = 2;
+    routeCount = m;
+    route[0].startCity = 0;
+    route[0].endCity = 1;
+    route[0].kind = 1;
+    route[0].price = 100;
+    route[0].dist = 1;
+    route[0].begin.setHMS(6, 0, 0);
+    route[0].end.setHMS(6, 5, 0);
+    route[0].step[0] = 1 * COLUMN + 1;
+    
+    
     return n;
 }

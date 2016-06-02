@@ -5,7 +5,11 @@
 #include <QDebug>
 #include "map.h"
 
+extern int cityCount;
+extern int routeCount;
 extern int seq;
+extern int customer[15][MAXN];
+extern Route route[50];
 
 NewTrip::NewTrip(int n, QWidget *parent) :
     QDialog(parent),
@@ -16,7 +20,6 @@ NewTrip::NewTrip(int n, QWidget *parent) :
     int i, j;
     for(i = 0; i < 11; i ++)
     {
-//	QComboBox* midP = new QComboBox[9];
 	for(j = 0; j < n; j ++)
 	{
 	    midP[i].addItem(QString("%1").arg(j, 2, 10, QLatin1Char('0')));
@@ -31,14 +34,37 @@ NewTrip::~NewTrip()
     delete ui;
 }
 
-/*
-void Dijstra(int src, double c[][MAXN], double* d, int n, int* prev)
+void findRoute(int& n, int k, int* prev, int rc[][20], int* cm)
 {
-    int i, j, k, flagg;
-    double temp;
-    int v[n] = {0};
+    if(prev[k] == k)
+	return ;
+    else
+    {
+	findRoute(n, prev[k], prev, rc,  cm);
+	cm[n ++] = rc[prev[k]][k];
+    }
+    return ;
+}
+
+int priceDijstra(int src, int dest, Route* route1, int* cm)
+{
+    int c[cityCount][cityCount], rc[20][20];
+    int v[cityCount] = {0}, prev[cityCount] = {0}, d[cityCount];
+    int i, j, k, flagg, temp;
     
-    for(i = 0; i < n; i ++)
+    for(i = 0; i < cityCount; i ++)
+    {
+	for(j = 0; j < cityCount; j ++)
+	    c[i][j] = INF;
+	c[i][i] = 0;
+    }
+    for(i = 0; i < routeCount; i ++)
+	if(route1[i].price < c[route1[i].startCity][route1[i].endCity])
+	{
+	    c[route1[i].startCity][route1[i].endCity] = route1[i].price;
+	    rc[route1[i].startCity][route1[i].endCity] = i;
+	}
+    for(i = 0; i < cityCount; i ++)
     {
 	if(c[src][i] >= 0)
 	{
@@ -50,11 +76,11 @@ void Dijstra(int src, double c[][MAXN], double* d, int n, int* prev)
     }
     d[src] = 0;
     v[src] = 1;
-    
-    for(k = 1; k < n; k++)
+
+    for(k = 1; k < cityCount; k++)
     {
-	temp = INF;;
-	for(i = 0; i < n; i ++)	
+	temp = INF;
+	for(i = 0; i < cityCount; i ++)	
 	    if(! v[i] && d[i] < temp)
 	    {
 		temp = d[i];
@@ -62,7 +88,7 @@ void Dijstra(int src, double c[][MAXN], double* d, int n, int* prev)
 	    }
 
 	v[flagg] = 1;
-	for(i = 0; i < n; i ++)	
+	for(i = 0; i < cityCount; i ++)	
 	    if(! v[i])	    
 		if(d[flagg] + c[flagg][i] < d[i])
 		{
@@ -71,40 +97,36 @@ void Dijstra(int src, double c[][MAXN], double* d, int n, int* prev)
 		}	
     }
     
+    int n = 0;
+    findRoute(n, dest, prev, rc, cm);
+    
+    return n;
 }
-void findRoute(int k, int* prev)
-{
-    if(prev[k] == k)
-	cout << k << " ";
-    else
-    {
-	findRoute(prev[k], prev);
-	cout << k << " ";
-    }
-    return ;
-}
-*/
+
 void NewTrip::on_NewTrip_accepted()
 {
     if(ui->timeBtn->isChecked())
-	return ;
+    {}
     else if(ui->priceBtn->isChecked())
     {
-	int i, j;
-	for(i = 0; i < 11; i = j)
+	int i, j, k;
+	for(i = 0, k = 0; i < 11; i = j)
 	{
 	    j = i + 1;
-	    if(midP[i].currentIndex == -1)
+	    if(midP[i].currentIndex() == -1)
 		continue;
 	    else
 	    {		
-		while(midP[j].currentIndex == -1 && j < 11)
+		while(midP[j].currentIndex() == -1 && j < 11)
 		    j ++;
 		if(j < 11)
-		    priceDijstra(i, j);		
+		    k += priceDijstra(i, j, route, customer[seq] + k);
 	    }
 	}
+	customer[seq][k] = -1;
     }
     else if(ui->mixBtn->isChecked())
-	return;
+    {}
+    seq %= 11;
+ 
 }

@@ -12,7 +12,7 @@
 #define ROAD 3
 
 #define INF 0x3f3f3f3f
-
+#define MAXN 100
 
 
 #endif

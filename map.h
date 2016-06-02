@@ -8,10 +8,6 @@
 #include "config.h"
 
 
-extern int seq;
-extern int customer[15][50];
-extern QDateTime dateTime;
-
 class Block : public QLabel
 {
     Q_OBJECT
@@ -32,6 +28,16 @@ class Route
     QTime begin, end;
     int step[ROW + COLUMN];
 };
-int loadMap(Block* blocks, Route* route, int row, int column);
+int loadMap(Block* blocks1, Route* route1, int row, int column);
+int test(Block* blocks1, Route* route1, int row, int column);
+
+
+extern int cityCount;
+extern int routeCount;
+extern int seq;
+extern int customer[15][MAXN];
+extern QDateTime dateTime;
+extern Route route[50];
+
 
 #endif
