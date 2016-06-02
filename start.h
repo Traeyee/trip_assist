@@ -12,8 +12,8 @@ class start;
 class start : public QWidget
 {
     Q_OBJECT
-protected:
-    void paintEvent(QPaintEvent*);
+//protected:
+//    void paintEvent(QPaintEvent*);
 
 public:
     explicit start(Block* blocks, int r, int c, int n, QWidget *parent = 0);

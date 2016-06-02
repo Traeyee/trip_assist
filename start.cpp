@@ -7,9 +7,20 @@
 #include "config.h"
 #include <cstdio>
 #include <QPainter>
+#include <QLabel>
+#include <QMovie>
+#include <QTime>
 
 extern QDateTime dateTime;
-
+/*void gifplay(QLabel*label)
+{
+    label->show();
+}
+void gifclose(QLabel*label)
+{
+    label->close();
+}
+*/
 start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::start)
@@ -33,7 +44,31 @@ start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
     QTimer* timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(timeUpdate()));
     timer->start(1000);
-    //ui->statusBar->showMessage(tr("Coded by sosuke"));
+/*
+    //开启动画
+    QMovie*movie;
+    movie = new QMovie("E:/Coding/workspace/Sosuke_trip_maker/pic/GIF1.gif");
+    QLabel *label = new QLabel ("",0);
+    label->setGeometry(300,300,500,500);
+    label->setMovie(movie);
+    label->setScaledContents(true);
+    movie->start();
+    gifplay(label);
+    t.start();
+    while(t.elapsed()<5000)
+    {
+        QApplication::processEvents();
+    }
+    gifclose(label);
+
+    return a.exec();
+*/
+
+
+    //贴动态图
+    QMovie*movie =new QMovie("E:/Coding/workspace/Sosuke_trip_maker/pic/GIF1.gif");
+    ui->label_2->setMovie(movie);
+    movie->start();
 }
 
 start::~start()
@@ -54,6 +89,7 @@ void start::timeUpdate()
     ui->sysTimeUi->setText(dateTime.toString("yyyy/MM/dd HH:mm"));
 }
 
+/*
 void start::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
@@ -69,3 +105,4 @@ void start::paintEvent(QPaintEvent *)
     painter.setPen(QColor(Qt::red));
     painter.drawText(410,80,"开启新的旅程吧！");
 }
+*/

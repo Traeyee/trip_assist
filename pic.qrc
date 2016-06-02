@@ -8,5 +8,8 @@
         <file alias="05">qrc/05.png</file>
         <file alias="00">qrc/00.png</file>
         <file alias="06">qrc/06.png</file>
+        <file alias="07">qrc/07.png</file>
+        <file alias="08">qrc/08.png</file>
+        <file alias="09">qrc/09.png</file>
     </qresource>
 </RCC>

@@ -6,17 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>399</width>
+    <width>460</width>
     <height>408</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(108, 194, 49);</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0" rowspan="3" colspan="2">
-    <layout class="QGridLayout" name="gridLayout"/>
-   </item>
    <item row="2" column="2" alignment="Qt::AlignLeft|Qt::AlignTop">
     <widget class="QLabel" name="sysTimeUi">
      <property name="maximumSize">
@@ -30,10 +30,27 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
+   <item row="3" column="2" alignment="Qt::AlignLeft|Qt::AlignTop">
     <widget class="QPushButton" name="startTrip">
      <property name="text">
       <string>开始旅程</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" rowspan="4" colspan="2">
+    <layout class="QGridLayout" name="gridLayout"/>
+   </item>
+   <item row="1" column="2" alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>现在时间：</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </item>
