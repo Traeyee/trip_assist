@@ -4,9 +4,11 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QDebug>
+#include "map.h"
 
 extern int customer[15][MAXN];
 extern int custOnWay[15];
+extern Route route[50];
 
 Inquiry::Inquiry(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +23,10 @@ Inquiry::Inquiry(QWidget *parent) :
     lbNum = 0;
     for(i = 0; i < MAXN; i ++)
 	lb[i] = NULL;
+
+    //按钮效果
+    ui->iqr->setStyleSheet("QPushButton{border-image: url(:/pic/樱花3.png);}"
+                               "QPushButton:hover{border-image: url(:/pic/樱花4.png);}");
 }
 
 Inquiry::~Inquiry()

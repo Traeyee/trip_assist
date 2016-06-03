@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(253, 253, 253);
+
+</string>
+  </property>
   <widget class="QComboBox" name="customBox">
    <property name="geometry">
     <rect>
@@ -26,14 +31,14 @@
   <widget class="QPushButton" name="iqr">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>80</y>
-     <width>112</width>
-     <height>34</height>
+     <x>50</x>
+     <y>160</y>
+     <width>91</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="text">
-    <string>查询</string>
+    <string/>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">

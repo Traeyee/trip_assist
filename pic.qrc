@@ -36,5 +36,6 @@
         <file alias="c07">qrc/c07.png</file>
         <file alias="c08">qrc/c08.png</file>
         <file alias="c09">qrc/c09.png</file>
+        <file>pic/background.png</file>
     </qresource>
 </RCC>

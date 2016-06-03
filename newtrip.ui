@@ -14,12 +14,13 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(253, 253, 253);</string>
+   <string notr="true">background-color: rgb(253, 253, 253);
+background-image: url(:/pic/background.png);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>60</y>
      <width>99</width>
      <height>21</height>
@@ -32,126 +33,126 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>100</y>
      <width>99</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市1</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>140</y>
      <width>99</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市2</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>180</y>
      <width>99</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市3</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>220</y>
      <width>99</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市4</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>260</y>
-     <width>99</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市5</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>300</y>
-     <width>99</width>
+     <width>61</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市6</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>340</y>
-     <width>99</width>
+     <width>61</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市7</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>380</y>
-     <width>99</width>
+     <width>61</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市8</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>420</y>
-     <width>99</width>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>途经城市9</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>100</x>
      <y>460</y>
-     <width>99</width>
+     <width>41</width>
      <height>21</height>
     </rect>
    </property>
