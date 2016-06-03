@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Inquiry</class>
- <widget name="Inquiry" class="QDialog">
+ <widget class="QDialog" name="Inquiry">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,6 +12,9 @@
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(253, 253, 253);</string>
   </property>
  </widget>
  <resources/>

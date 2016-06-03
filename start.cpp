@@ -68,9 +68,13 @@ start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
 
 
     //贴动态图
-    QMovie*movie =new QMovie("E:/Coding/workspace/Sosuke_trip_maker/pic/GIF1.gif");
+    QMovie*movie =new QMovie(":/pic/GIF1.gif");
     ui->label_2->setMovie(movie);
     movie->start();
+
+    QMovie*movie1 =new QMovie(":/pic/text.gif");
+    ui->label->setMovie(movie1);
+    movie1->start();
 
     //按钮效果
     ui->startTrip->setStyleSheet("QPushButton{border-image: url(:/pic/樱花1.png);}"

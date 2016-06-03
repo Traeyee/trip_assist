@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "map.h"
 #include "inquiry.h"
+#include <QtGui>
 
 extern int cityCount;
 extern int routeCount;
@@ -30,6 +31,16 @@ NewTrip::NewTrip(int n, QWidget *parent) :
 	}
 	ui->cityLayout->addWidget(midP + i);
     }
+
+    //按钮效果
+    ui->OK->setStyleSheet("QPushButton{border-image: url(:/pic/button5.png);}"
+                                "QPushButton:hover{border-image: url(:/pic/button6.png);}");
+
+
+
+    ui->exit->setStyleSheet("QPushButton{border-image: url(:/pic/button3.png);}"
+                               "QPushButton:hover{border-image: url(:/pic/button4.png);}");
+
 }
 
 NewTrip::~NewTrip()

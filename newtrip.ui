@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(253, 253, 253);</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -236,27 +239,27 @@
   <widget class="QPushButton" name="OK">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>630</y>
+     <x>200</x>
+     <y>560</y>
      <width>131</width>
-     <height>40</height>
+     <height>131</height>
     </rect>
    </property>
    <property name="text">
-    <string>Go!!!</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="exit">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>630</y>
+     <x>410</x>
+     <y>560</y>
      <width>131</width>
-     <height>40</height>
+     <height>131</height>
     </rect>
    </property>
    <property name="text">
-    <string>忍痛退出</string>
+    <string/>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">

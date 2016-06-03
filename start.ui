@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1143</width>
+    <width>1188</width>
     <height>800</height>
    </rect>
   </property>
@@ -19,10 +19,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>530</y>
-     <width>131</width>
-     <height>16</height>
+     <x>800</x>
+     <y>520</y>
+     <width>401</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="text">
@@ -32,10 +32,10 @@
   <widget class="QLabel" name="sysTimeUi">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>570</y>
+     <x>1050</x>
+     <y>560</y>
      <width>124</width>
-     <height>16</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="maximumSize">
@@ -77,7 +77,7 @@
   <widget class="QPushButton" name="inquiry">
    <property name="geometry">
     <rect>
-     <x>990</x>
+     <x>1010</x>
      <y>660</y>
      <width>131</width>
      <height>131</height>
@@ -87,9 +87,30 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="">
-   <layout class="QGridLayout" name="gridLayout"/>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>801</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetFixedSize</enum>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+   </layout>
   </widget>
+  <zorder>label</zorder>
+  <zorder>startTrip</zorder>
+  <zorder>label_2</zorder>
+  <zorder>inquiry</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>sysTimeUi</zorder>
  </widget>
  <resources/>
  <connections/>

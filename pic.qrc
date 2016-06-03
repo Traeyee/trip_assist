@@ -20,5 +20,11 @@
         <file>pic/transport01.png</file>
         <file>pic/transport02.png</file>
         <file>pic/transport03.png</file>
+        <file>pic/button3.png</file>
+        <file>pic/button4.png</file>
+        <file>pic/button5.png</file>
+        <file>pic/button6.png</file>
+        <file>pic/GIF1.gif</file>
+        <file>pic/text.gif</file>
     </qresource>
 </RCC>
