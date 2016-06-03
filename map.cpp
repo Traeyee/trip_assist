@@ -2,6 +2,7 @@
 #include <fstream>
 #include <QGridLayout>
 #include "map.h"
+#include "inquiry.h"
 #include <QDebug>
 using namespace std;
 
@@ -11,6 +12,7 @@ int seq;
 int customer[15][MAXN];
 QDateTime dateTime;
 Route route[50];
+int custOnWay[15];
 
 Block::Block(QWidget *parent) :
     QLabel(parent)
@@ -24,8 +26,12 @@ void Block::setting(int N, int isCit)
 {
     No = N;
     if(isCit)
+    {
 	isCity = true;
-    setPixmap(QPixmap(":/images/" +QString("%1").arg(No, 2, 10, QLatin1Char('0'))));
+	setPixmap(QPixmap(":/c" +QString("%1").arg(No, 2, 10, QLatin1Char('0'))));
+    }
+    else
+	setPixmap(QPixmap(":/images/" +QString("%1").arg(No, 2, 10, QLatin1Char('0'))));
 }
 
 OneTrip::OneTrip(int seqq)
@@ -70,7 +76,8 @@ void OneTrip::run()
 	}
     }
 //    delete timer;
-    
+    custOnWay[number] = 0;
+//    comboxUdate();
 }
 
     

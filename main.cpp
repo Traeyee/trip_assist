@@ -9,17 +9,21 @@ extern int seq;
 extern int customer[15][MAXN];
 extern QDateTime dateTime;
 extern Route route[50];
+extern int custOnWay[15];
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Initializaion
     Block blocks[ROW * COLUMN];
-    seq = 0;
+    seq = 0;    
     int i, j;
     for(i = 0; i < 15; i ++)
-	for(j = 0; j < 50; j ++)
+    {
+	custOnWay[i] = 0;
+	for(j = 0; j < MAXN; j ++)
 	    customer[i][j] = -1;
+    }
     dateTime = QDateTime::currentDateTime();
     
     int n;

@@ -54,6 +54,6 @@ extern int seq;
 extern int customer[15][MAXN];
 extern QDateTime dateTime;
 extern Route route[50];
-
+extern int custOnWay[15];
 
 #endif

@@ -26,5 +26,15 @@
         <file>pic/button6.png</file>
         <file>pic/GIF1.gif</file>
         <file>pic/text.gif</file>
+        <file alias="c00">qrc/c00.png</file>
+        <file alias="c01">qrc/c01.png</file>
+        <file alias="c02">qrc/c02.png</file>
+        <file alias="c03">qrc/c03.png</file>
+        <file alias="c04">qrc/c04.png</file>
+        <file alias="c05">qrc/c05.png</file>
+        <file alias="c06">qrc/c06.png</file>
+        <file alias="c07">qrc/c07.png</file>
+        <file alias="c08">qrc/c08.png</file>
+        <file alias="c09">qrc/c09.png</file>
     </qresource>
 </RCC>

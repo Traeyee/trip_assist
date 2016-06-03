@@ -12,6 +12,7 @@ extern int routeCount;
 extern int seq;
 extern int customer[15][MAXN];
 extern Route route[50];
+extern int custOnWay[15];
 
 static int rc[20][20];
 
@@ -24,23 +25,22 @@ NewTrip::NewTrip(int n, QWidget *parent) :
     int i, j;
     for(i = 0; i < 11; i ++)
     {
-	for(j = 0; j < n; j ++)
-	{
+	for(j = 0; j < n; j ++)	
 	    midP[i].addItem(QString("%1").arg(j, 2, 10, QLatin1Char('0')));
-	    midP[i].setCurrentIndex(-1);
-	}
+
+	midP[i].setCurrentIndex(-1);
 	ui->cityLayout->addWidget(midP + i);
     }
 
     //按钮效果
     ui->OK->setStyleSheet("QPushButton{border-image: url(:/pic/button5.png);}"
-                                "QPushButton:hover{border-image: url(:/pic/button6.png);}");
+			  "QPushButton:hover{border-image: url(:/pic/button6.png);}");
 
 
 
     ui->exit->setStyleSheet("QPushButton{border-image: url(:/pic/button3.png);}"
-                               "QPushButton:hover{border-image: url(:/pic/button4.png);}");
-
+			    "QPushButton:hover{border-image: url(:/pic/button4.png);}");
+    
 }
 
 NewTrip::~NewTrip()
@@ -153,6 +153,8 @@ void NewTrip::on_NewTrip_accepted()
 	for(i = 0; i < k; i ++)
 	    qDebug() << i << " " << customer[seq][i] << endl;
 	customer[seq][k] = -1;
+	custOnWay[seq] = 1;
+//	comboxUpdate();
 	OneTrip* o1 = new OneTrip(seq);
 	o1->start();
     }

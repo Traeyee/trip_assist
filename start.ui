@@ -32,9 +32,9 @@
   <widget class="QLabel" name="sysTimeUi">
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1030</x>
      <y>560</y>
-     <width>124</width>
+     <width>121</width>
      <height>21</height>
     </rect>
    </property>
