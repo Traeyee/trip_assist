@@ -17,5 +17,8 @@
         <file>pic/樱花2.png</file>
         <file>pic/樱花3.png</file>
         <file>pic/樱花4.png</file>
+        <file>pic/transport01.png</file>
+        <file>pic/transport02.png</file>
+        <file>pic/transport03.png</file>
     </qresource>
 </RCC>
