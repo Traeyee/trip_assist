@@ -2,9 +2,8 @@
 #include <fstream>
 #include <QGridLayout>
 #include "map.h"
-#include <iostream>
+#include <QDebug>
 using namespace std;
-
 
 int cityCount;
 int routeCount;
@@ -41,6 +40,7 @@ void OneTrip::run()
     QTimer* timer = new QTimer;
     connect(timer, SIGNAL(timeout()), this, SLOT(routeUpdate()));
     */
+    qDebug() << "THREAD\n" ;
     int i;
     for(;customer[number][routeSeq] != -1; routeSeq ++)
     {
@@ -144,7 +144,7 @@ int loadMap(Block* blocks, Route* route, int row, int column)
 		input >> i;
 		input.ignore();
 		input >> j;
-		route[k].step[s] = i * ROW + COLUMN;
+		route[k].step[s] = i * COLUMN + COLUMN;
 	    }
 	}	
 	input.close();
@@ -173,7 +173,16 @@ int test(Block* blocks, Route* route, int row, int column)
     route[0].begin.setHMS(6, 0, 0);
     route[0].end.setHMS(6, 5, 0);
     route[0].step[0] = 1 * COLUMN + 1;
-    
+        
+    route[1].startCity = 1;
+    route[1].endCity = 0;
+    route[1].kind = 2;
+    route[1].price = 50;
+    route[1].dist = 2;
+    route[1].begin.setHMS(7, 0, 0);
+    route[1].end.setHMS(7, 20, 0);
+    route[1].step[0] = 0 * COLUMN + 1;
+    route[1].step[1] = 0;
     
     return n;
 }

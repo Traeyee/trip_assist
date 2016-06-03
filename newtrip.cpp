@@ -12,6 +12,8 @@ extern int seq;
 extern int customer[15][MAXN];
 extern Route route[50];
 
+static int rc[20][20];
+
 NewTrip::NewTrip(int n, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewTrip)
@@ -34,23 +36,24 @@ NewTrip::~NewTrip()
 {
     delete ui;
 }
-
-void findRoute(int& n, int k, int* prev, int rc[][20], int* cm)
+/*
+void findRoute(int& n, int k, int* prev, int* cm)
 {
     if(prev[k] == k)
 	return ;
     else
     {
-	findRoute(n, prev[k], prev, rc,  cm);
+	findRoute(n, prev[k], prev, cm);
+	qDebug() << n << " CM " << rc[prev[k]][k] << endl;
 	cm[n ++] = rc[prev[k]][k];
     }
     return ;
 }
-
+*/
 int priceDijstra(int src, int dest, Route* route1, int* cm)
 {
-    int c[cityCount][cityCount], rc[20][20];
-    int v[cityCount] = {0}, prev[cityCount] = {0}, d[cityCount];
+    int c[20][20];
+    int v[20] = {0}, prev[20] = {0}, d[20];
     int i, j, k, flagg, temp;
     
     for(i = 0; i < cityCount; i ++)
@@ -64,6 +67,7 @@ int priceDijstra(int src, int dest, Route* route1, int* cm)
 	{
 	    c[route1[i].startCity][route1[i].endCity] = route1[i].price;
 	    rc[route1[i].startCity][route1[i].endCity] = i;
+	    qDebug() << route1[i].startCity << " " << route1[i].endCity << " RC " << i  << " " << rc[route1[i].startCity][route1[i].endCity]<< endl;
 	}
     for(i = 0; i < cityCount; i ++)
     {
@@ -77,7 +81,6 @@ int priceDijstra(int src, int dest, Route* route1, int* cm)
     }
     d[src] = 0;
     v[src] = 1;
-
     for(k = 1; k < cityCount; k++)
     {
 	temp = INF;
@@ -99,7 +102,18 @@ int priceDijstra(int src, int dest, Route* route1, int* cm)
     }
     
     int n = 0;
-    findRoute(n, dest, prev, rc, cm);
+    temp = dest;
+    while(temp != prev[temp])
+    {
+	n ++;
+	temp = prev[temp];
+    }
+    for(i = n - 1, temp = dest; i >= 0; i --)
+    {
+	qDebug() << rc[prev[temp]][temp] << endl;
+	cm[i] = rc[prev[temp]][temp];
+	temp = prev[temp];
+    }
     
     return n;
 }
@@ -117,16 +131,19 @@ void NewTrip::on_NewTrip_accepted()
 	    if(midP[i].currentIndex() == -1)
 		continue;
 	    else
-	    {		
+	    {
 		while(midP[j].currentIndex() == -1 && j < 11)
 		    j ++;
 		if(j < 11)
 		    k += priceDijstra(i, j, route, customer[seq] + k);
 	    }
 	}
+	qDebug() << seq << " seq " << k << endl;
+	for(i = 0; i < k; i ++)
+	    qDebug() << i << " " << customer[seq][i] << endl;
 	customer[seq][k] = -1;
-	OneTrip o1(seq);
-	o1.start();
+	OneTrip* o1 = new OneTrip(seq);
+	o1->start();
     }
     else if(ui->mixBtn->isChecked())
     {}
