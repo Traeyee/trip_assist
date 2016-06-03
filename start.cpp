@@ -11,6 +11,7 @@
 #include <QLabel>
 #include <QMovie>
 #include <QTime>
+#include <QtGui>
 
 extern QDateTime dateTime;
 /*void gifplay(QLabel*label)
@@ -70,6 +71,17 @@ start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
     QMovie*movie =new QMovie("E:/Coding/workspace/Sosuke_trip_maker/pic/GIF1.gif");
     ui->label_2->setMovie(movie);
     movie->start();
+
+    //按钮效果
+    ui->startTrip->setStyleSheet("QPushButton{border-image: url(:/pic/樱花1.png);}"
+                                "QPushButton:hover{border-image: url(:/pic/樱花2.png);}");
+
+
+
+    ui->inquiry->setStyleSheet("QPushButton{border-image: url(:/pic/樱花3.png);}"
+                               "QPushButton:hover{border-image: url(:/pic/樱花4.png);}");
+
+
 }
 
 start::~start()

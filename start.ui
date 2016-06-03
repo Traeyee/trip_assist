@@ -6,62 +6,90 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
-    <height>408</height>
+    <width>1143</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(108, 194, 49);</string>
+   <string notr="true">background-color: rgb(253, 253, 253);</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
-   <item row="1" column="2" alignment="Qt::AlignBottom">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>现在时间：</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2" alignment="Qt::AlignLeft|Qt::AlignTop">
-    <widget class="QLabel" name="sysTimeUi">
-     <property name="maximumSize">
-      <size>
-       <width>124</width>
-       <height>361</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>06:00</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" rowspan="4" colspan="2">
-    <layout class="QGridLayout" name="gridLayout"/>
-   </item>
-   <item row="3" column="2" alignment="Qt::AlignLeft|Qt::AlignTop">
-    <widget class="QPushButton" name="startTrip">
-     <property name="text">
-      <string>开始旅程</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="2">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="2">
-    <widget class="QPushButton" name="inquiry">
-     <property name="text">
-      <string>查询</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>530</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>现在时间：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sysTimeUi">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>570</y>
+     <width>124</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>124</width>
+     <height>361</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>06:00</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="startTrip">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>660</y>
+     <width>131</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>0</y>
+     <width>501</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inquiry">
+   <property name="geometry">
+    <rect>
+     <x>990</x>
+     <y>660</y>
+     <width>131</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <layout class="QGridLayout" name="gridLayout"/>
+  </widget>
  </widget>
  <resources/>
  <connections/>

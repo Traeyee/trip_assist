@@ -12,4 +12,10 @@
         <file alias="08">qrc/08.png</file>
         <file alias="09">qrc/09.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>pic/樱花1.png</file>
+        <file>pic/樱花2.png</file>
+        <file>pic/樱花3.png</file>
+        <file>pic/樱花4.png</file>
+    </qresource>
 </RCC>
