@@ -6,6 +6,7 @@
 #include "map.h"
 #include "inquiry.h"
 #include <QtGui>
+#include <QTime>
 
 extern int cityCount;
 extern int routeCount;
@@ -47,21 +48,8 @@ NewTrip::~NewTrip()
 {
     delete ui;
 }
-/*
-void findRoute(int& n, int k, int* prev, int* cm)
-{
-    if(prev[k] == k)
-	return ;
-    else
-    {
-	findRoute(n, prev[k], prev, cm);
-	qDebug() << n << " CM " << rc[prev[k]][k] << endl;
-	cm[n ++] = rc[prev[k]][k];
-    }
-    return ;
-}
-*/
-int priceDijstra(int src, int dest, Route* route1, int* cm)
+
+int priceDijstra(int src, int dest, Route* route1, int* cm)//价格优先策略
 {
     int c[20][20];
     int v[20] = {0}, prev[20] = {0}, d[20];
@@ -78,7 +66,7 @@ int priceDijstra(int src, int dest, Route* route1, int* cm)
 	{
 	    c[route1[i].startCity][route1[i].endCity] = route1[i].price;
 	    rc[route1[i].startCity][route1[i].endCity] = i;
-	    qDebug() << route1[i].startCity << " " << route1[i].endCity << " RC " << i  << " " << rc[route1[i].startCity][route1[i].endCity]<< endl;
+//	    qDebug() << route1[i].startCity << " " << route1[i].endCity << " RC " << i  << " " << rc[route1[i].startCity][route1[i].endCity]<< endl;
 	}
     for(i = 0; i < cityCount; i ++)
     {
@@ -121,9 +109,88 @@ int priceDijstra(int src, int dest, Route* route1, int* cm)
     }
     for(i = n - 1, temp = dest; i >= 0; i --)
     {
-	qDebug() << rc[prev[temp]][temp] << endl;
+//	qDebug() << rc[prev[temp]][temp] << endl;
 	cm[i] = rc[prev[temp]][temp];
 	temp = prev[temp];
+    }
+    
+    return n;
+}
+int timeLimDijstra(int src, int dest, Route* route1, int* cm)//限制时间策略
+{
+}
+int timeDijstra(int src, int dest, Route* route1, int* cm)//时间优先策略
+{
+    int c[20][20], d[20], temp;
+    int v[20] = {0}, prev[20] = {0};
+    int i, j, k, flagg;
+    QTime endTime[20], standard;
+
+    standard.setHMS(0, 0, 0);
+    for(i = 0; i < cityCount; i ++)
+    {
+	for(j = 0; j < cityCount; j ++)
+	    c[i][j] = INF;
+	c[i][i] = 0;
+    }
+    for(i = 0; i < routeCount; i ++)
+    {
+	temp = route1[i].dist * ((int)route1[i].kind) * TIMEUNIT;
+	if(temp < c[route1[i].startCity][route1[i].endCity])
+	{
+	    c[route1[i].startCity][route1[i].endCity] = temp;
+	    rc[route1[i].startCity][route1[i].endCity] = i;
+//	    qDebug() << route1[i].startCity << " " << route1[i].endCity << " RC " << i  << " " << rc[route1[i].startCity][route1[i].endCity]<< endl;
+	}
+    }
+    for(i = 0; i < cityCount; i ++)
+    {
+	if(c[src][i] >= 0)
+	{
+	    d[i] = c[src][i];
+	    prev[i] = src;
+	}
+	else
+	    d[i] = INF;
+    }
+    d[src] = 0;
+    v[src] = 1;
+    
+    for(k = 1; k < cityCount; k++)
+    {
+	temp = INF;
+	for(i = 0; i < cityCount; i ++)	
+	    if(! v[i] && d[i] < temp)
+	    {
+		temp = d[i];
+		flagg = i;
+	    }
+
+	v[flagg] = 1;
+	for(i = 0; i < cityCount; i ++)	
+	    if(! v[i])
+	    {
+		
+		if(d[flagg] + c[flagg][i] < d[i])
+		{
+		    d[i] = d[flagg] + c[flagg][i];
+		    prev[i] = flagg;
+		}
+	    }
+    }
+    
+    int n = 0;
+    k = dest;
+    while(k != prev[k])
+    {
+	n ++;
+	k = prev[k];
+    }
+    for(i = n - 1, k = dest; i >= 0; i --)
+    {
+//	qDebug() << rc[prev[k]][k] << endl;
+	cm[i] = rc[prev[k]][k];
+	k = prev[k];
     }
     
     return n;
@@ -146,12 +213,10 @@ void NewTrip::on_NewTrip_accepted()
 		while(midP[j].currentIndex() == -1 && j < 11)
 		    j ++;
 		if(j < 11)
-		    k += priceDijstra(i, j, route, customer[seq] + k);
+		    k += priceDijstra(midP[i].currentIndex(), midP[j].currentIndex(), route, customer[seq] + k);
 	    }
 	}
 	qDebug() << seq << " seq " << k << endl;
-	for(i = 0; i < k; i ++)
-	    qDebug() << i << " " << customer[seq][i] << endl;
 	customer[seq][k] = -1;
 	custOnWay[seq] = 1;
 //	comboxUpdate();

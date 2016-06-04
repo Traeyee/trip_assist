@@ -9,7 +9,7 @@ namespace Ui {
 class start;
 }
 
-class start : public QWidget
+class start : public QWidget//开始界面
 {
     Q_OBJECT
 //protected:
@@ -18,21 +18,18 @@ class start : public QWidget
 public:
     explicit start(Block* blocks, int r, int c, int n, QWidget *parent = 0);
     ~start();
-    QTime sysTime;
+    QTime sysTime;//系统时间
     public slots:
-    void timeUpdate();
+	void timeUpdate();//更新时间
 
 private slots:
-//    void slotSafe();
-//    void slotExplode();
     void on_startTrip_clicked();
-
     void on_inquiry_clicked();
 
 private:
-    int row;
-    int column;
-    int cityNum;
+    int row;//行
+    int column;//列
+    int cityNum;//城市数量
     Ui::start *ui;
 };
 

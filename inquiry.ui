@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>655</width>
-    <height>300</height>
+    <height>303</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>20</y>
+     <y>50</y>
      <width>92</width>
      <height>25</height>
     </rect>
@@ -41,27 +41,41 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QScrollArea" name="screen">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>170</x>
      <y>10</y>
-     <width>391</width>
+     <width>471</width>
      <height>271</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="screen">
-    <item>
-     <widget class="QScrollBar" name="verticalScrollBar">
-      <property name="layoutDirection">
-       <enum>Qt::RightToLeft</enum>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>469</width>
+      <height>269</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>10</y>
+     <width>91</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>   乘客编号</string>
+   </property>
   </widget>
  </widget>
  <resources/>

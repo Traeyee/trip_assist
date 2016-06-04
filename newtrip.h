@@ -8,7 +8,7 @@ namespace Ui {
 class NewTrip;
 }
 
-class NewTrip : public QDialog
+class NewTrip : public QDialog//开始旅程的界面
 {
     Q_OBJECT
 
@@ -20,7 +20,7 @@ private slots:
     void on_NewTrip_accepted();
 
 private:
-    QComboBox midP[11];
+    QComboBox midP[11];//途径城市
     Ui::NewTrip *ui;
 };
 

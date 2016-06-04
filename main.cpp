@@ -2,7 +2,6 @@
 #include <QDebug>
 #include "map.h"
 #include "config.h"
-#include <cstdio>
 #include "start.h"
 
 extern int seq;
@@ -27,8 +26,10 @@ int main(int argc, char *argv[])
     dateTime = QDateTime::currentDateTime();
     
     int n;
-    n = loadMap(blocks, route, ROW, COLUMN);
+//    n = loadMap(blocks, route, ROW, COLUMN);
+    n = testMap(blocks, route, ROW, COLUMN);
 //    n = test(blocks, route, ROW, COLUMN);
+//    qDebug() << routeCount << "ROUTE\n";
     start w(blocks, ROW, COLUMN, n);
     w.show();
     
