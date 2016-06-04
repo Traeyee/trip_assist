@@ -5,10 +5,12 @@
 #include "start.h"
 
 extern int seq;
-extern int customer[15][MAXN];
+extern Customer customer[15];
 extern QDateTime dateTime;
 extern Route route[50];
 extern int custOnWay[15];
+//extern Linker* linker;
+extern Block* theMap;
 
 int main(int argc, char *argv[])
 {
@@ -21,18 +23,28 @@ int main(int argc, char *argv[])
     {
 	custOnWay[i] = 0;
 	for(j = 0; j < MAXN; j ++)
-	    customer[i][j] = -1;
+	    customer[i].rt[j] = -1;
+	customer[i].mn = 0;
+	customer[i].durTime = 0;
     }
     dateTime = QDateTime::currentDateTime();
+//    linker = new Linker(blocks);
+    /*
+    for(i = 0; i < ROW * COLUMN; i ++)
+	QObject::connect(linker, SIGNAL(mv(int, unsigned char)), blocks + i, SLOT(update(int, unsigned char)));
+    */
     
     int n;
 //    n = loadMap(blocks, route, ROW, COLUMN);
     n = testMap(blocks, route, ROW, COLUMN);
 //    n = test(blocks, route, ROW, COLUMN);
 //    qDebug() << routeCount << "ROUTE\n";
-    start w(blocks, ROW, COLUMN, n);
-    w.show();
     
+    start w(blocks, ROW, COLUMN, n);
+    theMap = blocks;
+    w.show();
+
+//    delete linker;
     return a.exec();
 }
 

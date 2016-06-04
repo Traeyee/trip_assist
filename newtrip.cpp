@@ -11,9 +11,11 @@
 extern int cityCount;
 extern int routeCount;
 extern int seq;
-extern int customer[15][MAXN];
+extern Customer customer[15];
 extern Route route[50];
 extern int custOnWay[15];
+//extern Linker* linker;
+extern Block* theMap;
 
 static int rc[20][20];
 
@@ -124,6 +126,7 @@ int timeDijstra(int src, int dest, Route* route1, int* cm)//时间优先策略
     int c[20][20], d[20], temp;
     int v[20] = {0}, prev[20] = {0};
     int i, j, k, flagg;
+    bool notFound = false;
     QTime endTime[20], standard;
 
     standard.setHMS(0, 0, 0);
@@ -143,41 +146,27 @@ int timeDijstra(int src, int dest, Route* route1, int* cm)//时间优先策略
 //	    qDebug() << route1[i].startCity << " " << route1[i].endCity << " RC " << i  << " " << rc[route1[i].startCity][route1[i].endCity]<< endl;
 	}
     }
-    for(i = 0; i < cityCount; i ++)
-    {
-	if(c[src][i] >= 0)
-	{
-	    d[i] = c[src][i];
-	    prev[i] = src;
-	}
-	else
-	    d[i] = INF;
-    }
-    d[src] = 0;
+    prev[src] = src;
     v[src] = 1;
-    
-    for(k = 1; k < cityCount; k++)
+    k = src;
+    while(c[k][dest] >= INF)
     {
 	temp = INF;
-	for(i = 0; i < cityCount; i ++)	
-	    if(! v[i] && d[i] < temp)
+	flagg = k;
+	for(i = 0; i < cityCount; i ++)
+	    if((!v[i]) && c[k][i] < temp)
 	    {
-		temp = d[i];
+		temp = c[k][i];
 		flagg = i;
 	    }
-
+	if(k == flagg)
+	    return priceDijstra(src, dest, route1, cm);
 	v[flagg] = 1;
-	for(i = 0; i < cityCount; i ++)	
-	    if(! v[i])
-	    {
-		
-		if(d[flagg] + c[flagg][i] < d[i])
-		{
-		    d[i] = d[flagg] + c[flagg][i];
-		    prev[i] = flagg;
-		}
-	    }
+	prev[flagg] = k;
+	k = flagg;
     }
+    v[dest] = 1;
+    prev[dest] = k;
     
     int n = 0;
     k = dest;
@@ -198,33 +187,60 @@ int timeDijstra(int src, int dest, Route* route1, int* cm)//时间优先策略
 
 void NewTrip::on_NewTrip_accepted()
 {
-    if(ui->timeBtn->isChecked())
-    {}
-    else if(ui->priceBtn->isChecked())
+    int stra = 0;
+    if(ui->priceBtn->isChecked())
+	stra = 1;
+    else if(ui->timeBtn->isChecked())
+	stra = 2;
+    else if(ui->mixBtn->isChecked())
+	stra = 3;
+    int i, j, k;
+    for(i = 0, k = 0; i < 11; i = j)
     {
-	int i, j, k;
-	for(i = 0, k = 0; i < 11; i = j)
+	j = i + 1;
+	if(midP[i].currentIndex() == -1)
+	    continue;
+	else
 	{
-	    j = i + 1;
-	    if(midP[i].currentIndex() == -1)
-		continue;
-	    else
+	    while(midP[j].currentIndex() == -1 && j < 11)
+		j ++;
+	    if(j < 11)
 	    {
-		while(midP[j].currentIndex() == -1 && j < 11)
-		    j ++;
-		if(j < 11)
-		    k += priceDijstra(midP[i].currentIndex(), midP[j].currentIndex(), route, customer[seq] + k);
+		switch(stra)
+		{
+		case 1:
+		    k += priceDijstra(midP[i].currentIndex(), midP[j].currentIndex(), route, customer[seq].rt + k);
+		    break;
+		case 2:
+		    k += timeDijstra(midP[i].currentIndex(), midP[j].currentIndex(), route, customer[seq].rt + k);
+		    break;
+		case 3:
+		    k += timeLimDijstra(midP[i].currentIndex(), midP[j].currentIndex(), route, customer[seq].rt + k);
+		    break;
+		}
 	    }
 	}
-	qDebug() << seq << " seq " << k << endl;
-	customer[seq][k] = -1;
-	custOnWay[seq] = 1;
-//	comboxUpdate();
-	OneTrip* o1 = new OneTrip(seq);
-	o1->start();
     }
-    else if(ui->mixBtn->isChecked())
-    {}
-    seq %= 11;
- 
+    qDebug() << seq << " seq " << k << endl;
+    customer[seq].rt[k] = -1;
+    customer[seq].mn += route[customer[seq].rt[0]].price;
+    customer[seq].durTime += (int)route[customer[seq].rt[0]].kind * route[customer[seq].rt[0]].dist * TIMEUNIT;
+    QTime endTime(route[customer[seq].rt[0]].end.hour(), route[customer[seq].rt[0]].end.minute());
+    
+    for(i = 1; customer[seq].rt[i] != -1; i++)
+    {
+	customer[seq].mn += route[customer[seq].rt[i]].price;
+	customer[seq].durTime += difTime(route[customer[seq].rt[i]].begin, endTime);
+	endTime = route[customer[seq].rt[i]].end;
+    }
+    custOnWay[seq] = 1;
+    OneTrip* o1 = new OneTrip(seq);
+//    qDebug() << "DDD" << endl;
+    for(i = 0; i < ROW * COLUMN; i ++)
+	QObject::connect(o1, SIGNAL(move(int, unsigned char)), theMap + i, SLOT(update(int, unsigned char)));
+//    QObject::connect(o1, SIGNAL(move(int, unsigned char)), linker, SLOT(updateBlock(int, unsigned char)));    
+//    qDebug() << "EEE" << endl;
+    o1->start();
+    
+    seq = (seq + 1) % 11;
 }

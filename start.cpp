@@ -34,8 +34,13 @@ start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
     int i, j;
     ui->gridLayout->setSpacing(0);
     for(i = 0; i < row; i ++)
-    for(j = 0; j < column; j ++)
-        ui->gridLayout->addWidget(blocks + i * row + j, i, j);
+    {
+	for(j = 0; j < column; j ++)
+	{
+	    blocks[i * COLUMN + j].setP(i * COLUMN + j);
+	    ui->gridLayout->addWidget(blocks + i * COLUMN + j, i, j);
+	}
+    }
 //强制设置窗体大小
 //    setLayout(mainLayout);
   //setFixedSize(510,450);
