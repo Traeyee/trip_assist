@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>start</class>
+ <widget class="QWidget" name="start">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1188</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(253, 253, 253);</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>700</y>
+     <width>401</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>现在时间：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sysTimeUi">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>740</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>124</width>
+     <height>361</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="startTrip">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>540</y>
+     <width>131</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>0</y>
+     <width>501</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inquiry">
+   <property name="geometry">
+    <rect>
+     <x>1030</x>
+     <y>540</y>
+     <width>131</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>801</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetFixedSize</enum>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+   </layout>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>startTrip</zorder>
+  <zorder>label_2</zorder>
+  <zorder>inquiry</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>sysTimeUi</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

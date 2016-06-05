@@ -1,0 +1,104 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="0">qrc/0.png</file>
+        <file alias="01">qrc/01.png</file>
+        <file alias="02">qrc/02.png</file>
+        <file alias="03">qrc/03.png</file>
+        <file alias="04">qrc/04.png</file>
+        <file alias="05">qrc/05.png</file>
+        <file alias="00">qrc/00.png</file>
+        <file alias="06">qrc/06.png</file>
+        <file alias="07">qrc/07.png</file>
+        <file alias="08">qrc/08.png</file>
+        <file alias="09">qrc/09.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>pic/樱花1.png</file>
+        <file>pic/樱花2.png</file>
+        <file>pic/樱花3.png</file>
+        <file>pic/樱花4.png</file>
+        <file>pic/transport01.png</file>
+        <file>pic/transport02.png</file>
+        <file>pic/transport03.png</file>
+        <file>pic/button3.png</file>
+        <file>pic/button4.png</file>
+        <file>pic/button5.png</file>
+        <file>pic/button6.png</file>
+        <file>pic/GIF1.gif</file>
+        <file>pic/text.gif</file>
+        <file alias="c00">qrc/c00.png</file>
+        <file alias="c01">qrc/c01.png</file>
+        <file alias="c02">qrc/c02.png</file>
+        <file alias="c03">qrc/c03.png</file>
+        <file alias="c04">qrc/c04.png</file>
+        <file alias="c05">qrc/c05.png</file>
+        <file alias="c06">qrc/c06.png</file>
+        <file alias="c07">qrc/c07.png</file>
+        <file alias="c08">qrc/c08.png</file>
+        <file alias="c09">qrc/c09.png</file>
+        <file>pic/background.png</file>
+        <file>qrc/x00.png</file>
+        <file>qrc/x0.png</file>
+        <file>qrc/x01.png</file>
+        <file>qrc/x02.png</file>
+        <file>qrc/x03.png</file>
+        <file>qrc/x04.png</file>
+        <file>qrc/x05.png</file>
+        <file>qrc/x06.png</file>
+        <file>qrc/x07.png</file>
+        <file>qrc/x08.png</file>
+        <file>qrc/x09.png</file>
+        <file>qrc/xc00.png</file>
+        <file>qrc/xc01.png</file>
+        <file>qrc/xc02.png</file>
+        <file>qrc/xc03.png</file>
+        <file>qrc/xc04.png</file>
+        <file>qrc/xc05.png</file>
+        <file>qrc/xc06.png</file>
+        <file>qrc/xc07.png</file>
+        <file>qrc/xc08.png</file>
+        <file>qrc/xc09.png</file>
+        <file>qrc/y00.png</file>
+        <file>qrc/y0.png</file>
+        <file>qrc/y01.png</file>
+        <file>qrc/y02.png</file>
+        <file>qrc/y03.png</file>
+        <file>qrc/y04.png</file>
+        <file>qrc/y05.png</file>
+        <file>qrc/y06.png</file>
+        <file>qrc/y07.png</file>
+        <file>qrc/y08.png</file>
+        <file>qrc/y09.png</file>
+        <file>qrc/yc00.png</file>
+        <file>qrc/yc01.png</file>
+        <file>qrc/yc02.png</file>
+        <file>qrc/yc03.png</file>
+        <file>qrc/yc04.png</file>
+        <file>qrc/yc05.png</file>
+        <file>qrc/yc06.png</file>
+        <file>qrc/yc07.png</file>
+        <file>qrc/yc08.png</file>
+        <file>qrc/yc09.png</file>
+        <file>qrc/z00.png</file>
+        <file>qrc/z0.png</file>
+        <file>qrc/z01.png</file>
+        <file>qrc/z02.png</file>
+        <file>qrc/z03.png</file>
+        <file>qrc/z04.png</file>
+        <file>qrc/z05.png</file>
+        <file>qrc/z06.png</file>
+        <file>qrc/z07.png</file>
+        <file>qrc/z08.png</file>
+        <file>qrc/z09.png</file>
+        <file>qrc/zc00.png</file>
+        <file>qrc/zc01.png</file>
+        <file>qrc/zc02.png</file>
+        <file>qrc/zc03.png</file>
+        <file>qrc/zc04.png</file>
+        <file>qrc/zc05.png</file>
+        <file>qrc/zc06.png</file>
+        <file>qrc/zc07.png</file>
+        <file>qrc/zc08.png</file>
+        <file>qrc/zc09.png</file>
+    </qresource>
+</RCC>
