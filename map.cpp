@@ -16,6 +16,7 @@ Route route[50];
 int custOnWay[15];
 //Linker* linker;
 Block* theMap;
+ofstream output;
 /*
 void Linker::run()
 {
@@ -45,6 +46,9 @@ void Block::setting(int N, int isCit)
 }
 void Block::setP(int P) {
     position = P;
+}
+int Block::getNo() {
+    return No;
 }
 void Block::update(int noo, unsigned char k)
 {
@@ -109,16 +113,20 @@ void OneTrip::run()
     int i;
     QTime temp;
     for(;customer[number].rt[routeSeq] != -1; routeSeq ++)
-    {	
+    {
+	customer[number].tripNo = customer[number].rt[routeSeq];
 	temp = dateTime.time();
 	sleep(difTime(route[customer[number].rt[routeSeq]].begin, temp) / TIMEUNIT);
 	qDebug() << "HHHH" << endl;
+	output << number << "号旅客开始旅程" << endl;
 	switch(route[customer[number].rt[routeSeq]].kind)
 	{
 	case AIR:
 	    for(i = 0; i < route[customer[number].rt[routeSeq]].dist; i ++)
 	    {
 		position = route[customer[number].rt[routeSeq]].step[i];
+		output << dateTime.toString("yyyy/MM/dd HH:mm").toLatin1().data() << endl;
+		output << number << "号旅客到达城市" << theMap[position].getNo() << endl;
 		emit move(position, route[customer[number].rt[routeSeq]].kind);
 		sleep(1);
 		emit move(position, route[customer[number].rt[routeSeq]].kind);
@@ -128,6 +136,8 @@ void OneTrip::run()
 	    for(i = 0; i < route[customer[number].rt[routeSeq]].dist; i ++)
 	    {
 		position = route[customer[number].rt[routeSeq]].step[i];
+		output << dateTime.toString("yyyy/MM/dd HH:mm").toLatin1().data() << endl;
+		output << number << "号旅客到达城市" << theMap[position].getNo() << endl;
 		emit move(position, route[customer[number].rt[routeSeq]].kind);
 		sleep(2);
 		emit move(position, route[customer[number].rt[routeSeq]].kind);
@@ -137,6 +147,8 @@ void OneTrip::run()
 	    for(i = 0; i < route[customer[number].rt[routeSeq]].dist; i ++)
 	    {
 		position = route[customer[number].rt[routeSeq]].step[i];
+		output << dateTime.toString("yyyy/MM/dd HH:mm").toLatin1().data() << endl;
+		output << number << "号旅客到达城市" << theMap[position].getNo() << endl;
 		emit move(position, route[customer[number].rt[routeSeq]].kind);
 		sleep(3);
 		emit move(position, route[customer[number].rt[routeSeq]].kind);
@@ -149,6 +161,7 @@ void OneTrip::run()
     customer[number].mn = 0;
     customer[number].durTime = 0;
     custOnWay[number] = 0;
+    output << number << "号旅客到达终点" << endl;
 //    comboxUdate();
 }
 /*

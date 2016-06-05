@@ -4,6 +4,8 @@
 #include "config.h"
 #include "start.h"
 
+using namespace std;
+
 extern int seq;
 extern Customer customer[15];
 extern QDateTime dateTime;
@@ -11,11 +13,14 @@ extern Route route[50];
 extern int custOnWay[15];
 //extern Linker* linker;
 extern Block* theMap;
+extern ofstream output;
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Initializaion
+    output.open("log.txt");
     Block blocks[ROW * COLUMN];
     seq = 0;    
     int i, j;
@@ -26,6 +31,7 @@ int main(int argc, char *argv[])
 	    customer[i].rt[j] = -1;
 	customer[i].mn = 0;
 	customer[i].durTime = 0;
+	customer[i].tripNo = -1;
     }
     dateTime = QDateTime::currentDateTime();
 //    linker = new Linker(blocks);
@@ -45,6 +51,8 @@ int main(int argc, char *argv[])
     w.show();
 
 //    delete linker;
+
+    qDebug() << "END";
     return a.exec();
 }
 

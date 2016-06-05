@@ -12,8 +12,10 @@
 #include <QMovie>
 #include <QTime>
 #include <QtGui>
+#include <fstream>
 
 extern QDateTime dateTime;
+extern ofstream output;
 /*void gifplay(QLabel*label)
 {
     label->show();
@@ -95,6 +97,8 @@ start::start(Block* blocks, int r, int c, int n, QWidget *parent) :
 
 start::~start()
 {
+    output << "本次服务结束" << endl;
+    output.close();
     delete ui;
 }
 

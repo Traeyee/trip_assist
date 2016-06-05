@@ -7,6 +7,7 @@
 #include "inquiry.h"
 #include <QtGui>
 #include <QTime>
+#include <QMessageBox>
 
 extern int cityCount;
 extern int routeCount;
@@ -120,6 +121,7 @@ int priceDijstra(int src, int dest, Route* route1, int* cm)//价格优先策略
 }
 int timeLimDijstra(int src, int dest, Route* route1, int* cm)//限制时间策略
 {
+    return priceDijstra(src, dest, route1, cm);
 }
 int timeDijstra(int src, int dest, Route* route1, int* cm)//时间优先策略
 {
@@ -226,21 +228,36 @@ void NewTrip::on_NewTrip_accepted()
     customer[seq].mn += route[customer[seq].rt[0]].price;
     customer[seq].durTime += (int)route[customer[seq].rt[0]].kind * route[customer[seq].rt[0]].dist * TIMEUNIT;
     QTime endTime(route[customer[seq].rt[0]].end.hour(), route[customer[seq].rt[0]].end.minute());
-    
     for(i = 1; customer[seq].rt[i] != -1; i++)
     {
 	customer[seq].mn += route[customer[seq].rt[i]].price;
 	customer[seq].durTime += difTime(route[customer[seq].rt[i]].begin, endTime);
 	endTime = route[customer[seq].rt[i]].end;
     }
-    custOnWay[seq] = 1;
-    OneTrip* o1 = new OneTrip(seq);
+
+    if(stra == 3 && customer[seq].durTime > ui->hs->value() * 3600 + ui->mins->value() * 60)
+    {
+	if (QMessageBox::Yes == QMessageBox::question(this,
+						      tr("注意"),
+						      tr("不存在符合要求的路径！"),
+						      QMessageBox::Yes | QMessageBox::No,
+						      QMessageBox::Yes))
+	    1;/*
+	else {
+	    QMessageBox::information(this, tr("Hmmm..."), tr("I'm sorry!"));
+	    }*/
+    }
+    else
+    {
+	custOnWay[seq] = 1;
+	OneTrip* o1 = new OneTrip(seq);
 //    qDebug() << "DDD" << endl;
-    for(i = 0; i < ROW * COLUMN; i ++)
-	QObject::connect(o1, SIGNAL(move(int, unsigned char)), theMap + i, SLOT(update(int, unsigned char)));
+	for(i = 0; i < ROW * COLUMN; i ++)
+	    QObject::connect(o1, SIGNAL(move(int, unsigned char)), theMap + i, SLOT(update(int, unsigned char)));
 //    QObject::connect(o1, SIGNAL(move(int, unsigned char)), linker, SLOT(updateBlock(int, unsigned char)));    
 //    qDebug() << "EEE" << endl;
-    o1->start();
+	o1->start();
     
-    seq = (seq + 1) % 11;
+	seq = (seq + 1) % 11;
+    }
 }

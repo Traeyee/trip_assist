@@ -227,16 +227,6 @@ background-image: url(:/pic/background.png);</string>
     </property>
    </widget>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>460</y>
-     <width>113</width>
-     <height>28</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="OK">
    <property name="geometry">
     <rect>
@@ -386,6 +376,61 @@ background-image: url(:/pic/background.png);</string>
      <string/>
     </property>
    </widget>
+  </widget>
+  <widget class="QSpinBox" name="hs">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>460</y>
+     <width>45</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>460</y>
+     <width>41</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>小时</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="mins">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>460</y>
+     <width>45</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>59</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>460</y>
+     <width>41</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>分钟</string>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -50,6 +50,24 @@ void Inquiry::on_iqr_clicked()
 	i = 0;
 	k = ui->customBox->currentIndex();
 	QString str("");
+
+	str = str + QString("乘客当前城市：%1\n").arg(route[customer[k].tripNo].startCity, 2, 10, QLatin1Char('0'));
+	str = str + QString("乘客于班次%1上 ").arg(customer[k].tripNo, 2, 10, QLatin1Char('0'));
+	str = str + QString("乘客将乘坐");
+	switch(route[customer[k].tripNo].kind)
+	{
+	case AIR:
+	    str = str + QString("飞机");
+	    break;
+	case RAIL:
+	    str = str + QString("火车");
+	    break;
+	case ROAD:
+	    str = str + QString("汽车");
+	    break;
+	}
+	str = str + QString("\n\n");
+	
 	while(customer[k].rt[i] != -1)
 	{
 	    str = str + QString("班次：%1  ").arg(customer[k].rt[i], 2, 10, QLatin1Char('0'));

@@ -6,8 +6,10 @@
 #include <QWidget>
 #include <QtCore>
 #include <QThread>
+#include <fstream>
 #include "config.h"
 
+using namespace std;
 
 class Block : public QLabel//地图单元（一个方块）
 {
@@ -16,6 +18,7 @@ class Block : public QLabel//地图单元（一个方块）
     explicit Block(QWidget *parent = 0);
     void setting(int No, int isCity);//设置属性
     void setP(int P);
+    int getNo();
     public slots:
 	void update(int pos, unsigned char);	
 
@@ -56,6 +59,7 @@ class Customer
     int mn;
     int durTime;
     int rt[MAXN];
+    int tripNo;
 };
 /*
 class Linker : public QThread
@@ -86,5 +90,6 @@ extern Route route[50];//班次
 extern int custOnWay[15];//判断乘客是否在路上
 //extern Linker* linker;
 extern Block* theMap;
+extern ofstream output;
 
 #endif
